@@ -16,3 +16,24 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+let arrowL = document.createElement('img')
+arrowL.classList.add('arrow')
+arrowL.classList.add('arrow_left')
+arrowL.src = "./assets/images/arrow_left.png"
+
+arrowL.addEventListener("click", function(){
+	console.log("coucou arol")
+})
+
+let arrowR = document.createElement('img')
+arrowR.classList.add('arrow')
+arrowR.classList.add('arrow_right')
+arrowR.src = "./assets/images/arrow_right.png"
+
+arrowR.addEventListener("click", function(){
+	console.log("coucou aror")
+})
+let banner = document.querySelector('#banner')
+banner.appendChild(arrowL)
+banner.appendChild(arrowR)
