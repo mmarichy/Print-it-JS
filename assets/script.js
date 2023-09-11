@@ -17,23 +17,58 @@ const slides = [
 	}
 ]
 
-let arrowL = document.createElement('img')
+/* Images banner */
+let idx = 0
+
+function myIMG  () {
+	let imgban = document.querySelector(".banner-img")
+	imgban.src = "./assets/images/slideshow/" + slides[idx].image
+	let myP = document.querySelector(".myp")
+	myP.innerHTML = slides[idx].tagLine
+	
+}
+
+/* Flèches de direction */
+const arrowL = document.createElement('img')
 arrowL.classList.add('arrow')
 arrowL.classList.add('arrow_left')
 arrowL.src = "./assets/images/arrow_left.png"
 
 arrowL.addEventListener("click", function(){
-	console.log("coucou arol")
+	idx = idx - 1
+	if (idx === -1){
+		idx = slides.length - 1
+	}
+	myIMG()
 })
 
-let arrowR = document.createElement('img')
+const arrowR = document.createElement('img')
 arrowR.classList.add('arrow')
 arrowR.classList.add('arrow_right')
 arrowR.src = "./assets/images/arrow_right.png"
 
 arrowR.addEventListener("click", function(){
-	console.log("coucou aror")
+	idx = idx + 1
+	console.log(idx)
+	if (idx === slides.length){
+		idx = 0
+	}
+	myIMG()
 })
+
 let banner = document.querySelector('#banner')
 banner.appendChild(arrowL)
 banner.appendChild(arrowR)
+/* dots*/
+
+let dotContainer = document.querySelector('.dots')
+/*dots par slides */
+slides.forEach((slide) => { 
+	let dot = document.createElement("div")
+	dot.classList.add("dot")
+	dotContainer.appendChild(dot)
+	// console.log(slide)
+})
+
+let dots = document.querySelectorAll('.dot')
+myIMG() 
