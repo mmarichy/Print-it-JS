@@ -25,7 +25,13 @@ function myIMG  () {
 	imgban.src = "./assets/images/slideshow/" + slides[idx].image
 	let myP = document.querySelector(".myp")
 	myP.innerHTML = slides[idx].tagLine
-	
+	for (i = 0; i < dots.length; i++){
+		dots[i].classList.remove('dot_selected')
+	}
+	dots[idx].classList.add('dot_selected')
+	// console.log(imgban)
+	// console.log(dots[idx])
+	// console.log(dots)
 }
 
 /* Flèches de direction */
