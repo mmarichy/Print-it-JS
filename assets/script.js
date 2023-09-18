@@ -25,9 +25,7 @@ function myIMG  () {
 	imgban.src = "./assets/images/slideshow/" + slides[idx].image
 	let myP = document.querySelector(".myp")
 	myP.innerHTML = slides[idx].tagLine
-	for (i = 0; i < dots.length; i++){
-		dots[i].classList.remove('dot_selected')
-	}
+	dots.forEach((dot, idx) => {dots[idx].classList.remove('dot_selected')})
 	dots[idx].classList.add('dot_selected')
 	// console.log(imgban)
 	// console.log(dots[idx])
@@ -68,6 +66,7 @@ banner.appendChild(arrowR)
 /* dots*/
 
 let dotContainer = document.querySelector('.dots')
+
 /*dots par slides */
 slides.forEach((slide) => { 
 	let dot = document.createElement("div")
