@@ -17,7 +17,7 @@ const slides = [
 	}
 ]
 
-/* Images banner */
+/* Fonction carrousel */
 let idx = 0
 
 function myIMG  () {
@@ -28,8 +28,6 @@ function myIMG  () {
 	dots.forEach((dot, idx) => {dots[idx].classList.remove('dot_selected')})
 	dots[idx].classList.add('dot_selected')
 	// console.log(imgban)
-	// console.log(dots[idx])
-	// console.log(dots)
 }
 
 /* Flèches de direction */
@@ -44,6 +42,8 @@ arrowL.addEventListener("click", function(){
 		idx = slides.length - 1
 	}
 	myIMG()
+
+	console.log("Arrow Left")
 })
 
 const arrowR = document.createElement('img')
@@ -53,21 +53,22 @@ arrowR.src = "./assets/images/arrow_right.png"
 
 arrowR.addEventListener("click", function(){
 	idx = idx + 1
-	console.log(idx)
 	if (idx === slides.length){
 		idx = 0
 	}
 	myIMG()
+
+	console.log("Arrow Right")
 })
 
 let banner = document.querySelector('#banner')
 banner.appendChild(arrowL)
 banner.appendChild(arrowR)
+
 /* dots*/
 
 let dotContainer = document.querySelector('.dots')
 
-/*dots par slides */
 slides.forEach((slide) => { 
 	let dot = document.createElement("div")
 	dot.classList.add("dot")
